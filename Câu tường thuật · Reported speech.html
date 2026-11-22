@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Câu tường thuật · Reported speech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--b1:#4a9fd8;--b2:#7cc3ec;--b3:#a9dbf3;--cream:#fff8ea;--card:rgba(14,52,102,.58);--line:rgba(255,248,234,.7);--mut:#cfe6f6;--acc:#ffe6a8;--ok:#8ff0be;--okbg:rgba(60,180,120,.3);--no:#ffb0bd;--nobg:rgba(220,70,100,.3);--g:.3;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--b1:#143a66;--b2:#1f5c94;--b3:#3a86bd;--card:rgba(8,28,58,.66);--g:.4}}
+:root[data-theme="dark"]{--b1:#143a66;--b2:#1f5c94;--b3:#3a86bd;--card:rgba(8,28,58,.66);--g:.4}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--cream);font:400 16px/1.7 "Be Vietnam Pro",system-ui,sans-serif;background:linear-gradient(180deg,var(--b1),var(--b2) 45%,var(--b3)) fixed;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:var(--g);mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.2 -.1'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.55),transparent 68%);filter:blur(24px);will-change:transform}
+.ov{position:absolute;border:1.5px solid var(--line);border-radius:50%;opacity:.5;will-change:transform}
+main{position:relative;z-index:1}
+.sf{font-family:"Cormorant Garamond","Times New Roman",serif;font-weight:500;color:var(--cream);line-height:.95}
+.hero{min-height:94vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px}
+.hero .it{font-style:italic;font-size:clamp(54px,15vw,120px);display:block}
+.hero h1{margin:0;font-size:clamp(50px,13.5vw,118px);letter-spacing:-.01em}
+.hero p{max-width:330px;margin:34px auto 0;font-size:13px;line-height:1.55;color:var(--cream)}
+.oval{display:inline-block;margin-top:30px;padding:12px 44px;border:1.5px solid var(--line);border-radius:50%/50%;color:var(--cream);background:transparent;font-family:"Cormorant Garamond",serif;font-size:19px;font-style:italic;text-decoration:none;transition:background .3s,transform .3s}
+.oval:hover{background:rgba(255,255,255,.18);transform:scale(1.04)}
+.card{max-width:780px;margin:44px 16px;padding:38px 30px 30px;background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.5px solid var(--line);border-radius:44px}
+@media(min-width:828px){.card{margin-left:auto;margin-right:auto}}
+h2.sf{font-size:clamp(32px,7vw,48px);margin:0 0 12px}h2.sf em{display:block;font-size:.6em;color:var(--acc)}
+h3.sf{font-size:26px;margin:20px 0 8px}
+p{margin:0 0 12px}.mut{color:var(--mut)}
+b.r{color:var(--acc);font-weight:600}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px}
+td,th{padding:8px 10px;border-top:1px solid rgba(255,248,234,.25);text-align:left;vertical-align:top}
+th{font-weight:500;font-size:13px;color:var(--mut);border-top:0}
+td:last-child{color:var(--acc);font-weight:500}
+.q{padding:20px 0;border-top:1px solid rgba(255,248,234,.25)}
+.q:first-of-type{border-top:0}
+.qn{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;color:var(--acc);margin-right:8px;font-size:24px}
+.sent{font-size:17px;margin-bottom:12px}
+.st{color:var(--acc);font-weight:600}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:10px 18px;border-radius:26px;border:1.5px solid rgba(255,248,234,.4);background:transparent;color:var(--cream);font:inherit;cursor:pointer;transition:transform .15s,background .3s,border-color .2s}
+.opt:hover:not(:disabled){background:rgba(255,255,255,.14);transform:translateX(5px)}
+.opt .l{display:inline-block;width:24px;color:var(--acc);font-weight:600}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.no{background:var(--nobg);border-color:var(--no);animation:shake .4s}
+.opt:disabled{cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+textarea{flex:1 1 260px;min-width:0;font:inherit;padding:10px 16px;border-radius:24px;border:1.5px solid rgba(255,248,234,.4);background:rgba(255,255,255,.1);color:var(--cream);resize:none;height:66px}
+textarea::placeholder{color:var(--mut)}
+textarea.ok{border-color:var(--ok);background:var(--okbg)}
+textarea.no{border-color:var(--no);background:var(--nobg);animation:shake .4s}
+textarea:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.go{padding:10px 26px;border:1.5px solid var(--cream);border-radius:99px;background:var(--cream);color:#0e3466;font:inherit;font-weight:600;cursor:pointer;transition:transform .15s}
+.go:hover{transform:translateY(-2px)}
+.fb{display:none;margin-top:12px;padding:14px 18px;border-radius:26px;font-size:15px}
+.fb.show{display:block;animation:pop .45s cubic-bezier(.2,1.3,.4,1)}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.97)}}
+.fb.ok{background:var(--okbg)}.fb.no{background:var(--nobg)}
+.fb strong.ok{color:var(--ok)}.fb strong.no{color:var(--no)}
+.fb .ans{font-size:17px;font-weight:500;margin:4px 0}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.pill{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:10;padding:7px 20px;border:1.5px solid var(--cream);border-radius:99px;background:rgba(14,52,102,.8);color:var(--cream);font-size:14px;font-weight:600;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:17px}
+.score{font-size:84px;font-style:italic}
+.center{text-align:center}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <div class="orb" id="o1" style="width:70vmax;height:50vmax;left:-20vmax;top:-12vmax"></div>
+  <div class="orb" id="o2" style="width:60vmax;height:50vmax;right:-22vmax;bottom:-14vmax"></div>
+  <div class="ov" id="v1" style="width:56vmin;height:30vmin;left:6vw;top:22vh"></div>
+  <div class="ov" id="v2" style="width:44vmin;height:24vmin;right:4vw;top:62vh"></div>
+</div>
+<main>
+<section class="hero reveal">
+  <h1 class="sf"><span class="it">define</span>reported speech</h1>
+  <p>Lời nói trực tiếp thành gián tiếp: lùi thì, đổi ngôi, đổi trạng từ. Lý thuyết, 40 câu trắc nghiệm và 30 câu viết lại, đáp án và giải thích hiện ngay sau mỗi câu.</p>
+  <a class="oval" href="#theory">Bắt đầu</a>
+</section>
+<div id="theory"></div>
+<section class="card reveal"><h2 class="sf">Phần I &amp; II<em>Trắc nghiệm · câu 1–40</em></h2><p class="mut">10 câu lý thuyết và 30 câu thực hành. Chọn đáp án đúng nhất.</p><div id="mcq"></div></section>
+<section class="card reveal"><h2 class="sf">Phần III<em>Tự luận viết lại · câu 41–70</em></h2><p class="mut">Viết tiếp sau phần gợi ý để chuyển sang gián tiếp. Có thể bỏ hoặc giữ “that”. Nhấn Enter để kiểm tra.</p><div id="essay"></div></section>
+<section class="card center reveal"><h2 class="sf">Kết quả của bạn</h2><div class="sf score" id="final">0/70</div>
+<p class="mut" id="msg">Làm hết các câu để xem tổng kết.</p><button class="go" onclick="location.reload()">Làm lại từ đầu</button></section>
+</main>
+<div class="pill" id="pill">Đúng 0 / 0</div>
+
+<script>
+const tb=(h,rows)=>`<div class="wrap"><table><tr><th>${h[0]}</th><th>${h[1]}</th></tr>${rows.map(r=>`<tr><td style="color:inherit;font-weight:400">${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table></div>`;
+document.getElementById("theory").innerHTML=`<section class="card reveal" id="theory-a"><h2 class="sf">Lý thuyết<em>tóm tắt trọng tâm</em></h2>
+<p>Khi chuyển sang gián tiếp, làm theo ba bước: <b class="r">lùi thì</b> (nếu động từ tường thuật ở quá khứ), <b class="r">đổi đại từ</b>, <b class="r">đổi trạng từ</b> thời gian và nơi chốn.</p>
+<h3 class="sf">Lùi thì</h3>`+tb(["Trực tiếp","Gián tiếp"],[["Hiện tại đơn (do / does)","Quá khứ đơn"],["Hiện tại tiếp diễn (am / is / are + V-ing)","Quá khứ tiếp diễn"],["Hiện tại hoàn thành (have / has + V3)","Quá khứ hoàn thành (had + V3)"],["Quá khứ đơn","Quá khứ hoàn thành"],["will / can / may","would / could / might"],["must (bắt buộc)","had to"]])+
+`<div class="note"><p class="mut">Không lùi thì khi: động từ tường thuật ở hiện tại (says), hoặc câu nói là sự thật hiển nhiên, chân lý khoa học.</p></div></section>
+<section class="card reveal"><h3 class="sf" style="margin-top:0">Đổi trạng từ và đại từ chỉ định</h3>`+tb(["Trực tiếp","Gián tiếp"],[["today / tonight","that day / that night"],["tomorrow","the next day / the following day"],["yesterday","the day before / the previous day"],["next week","the following week / the next week"],["last night","the night before / the previous night"],["now","then"],["here","there"],["this / these","that / those"]])+
+`<p class="mut">Đại từ ngôi thứ nhất (I, we, me, us) đổi theo chủ ngữ của mệnh đề tường thuật; ngôi thứ hai (you) đổi theo tân ngữ.</p></section>
+<section class="card reveal"><h3 class="sf" style="margin-top:0">Các dạng câu tường thuật</h3>`+tb(["Dạng câu","Cấu trúc"],[["Câu kể","S + said / told + O + (that) + S + V (lùi thì)"],["Hỏi Yes/No","S + asked + O + if / whether + S + V (không đảo, không dấu hỏi)"],["Hỏi Wh-","S + asked + O + wh-word + S + V (không đảo trợ động từ)"],["Mệnh lệnh / yêu cầu","S + told / asked + O + (not) to V"],["advise / invite / remind / warn / order","S + V + O + (not) to V"],["promise / offer","S + V + to V"],["suggest","suggest + V-ing / suggest that S + should + V"],["apologize / deny","apologize for + V-ing / deny + V-ing"],["accuse","accuse + O + of + V-ing"]])+`</section>`;
+
+/* [câu, 4 phương án, đáp án 0-3, giải thích] */
+const M=[
+["Khi chuyển từ câu trực tiếp sang gián tiếp, động từ ở thì Hiện tại hoàn thành sẽ được lùi về thì nào?",["Quá khứ đơn","Quá khứ hoàn thành","Hiện tại hoàn thành tiếp diễn","Quá khứ tiếp diễn"],1,"Hiện tại hoàn thành lùi về quá khứ hoàn thành (had + V3)."],
+["Trạng từ thời gian “tomorrow” khi chuyển sang gián tiếp sẽ đổi thành:",["the day before","that day","the next day / the following day","the previous day"],2,"tomorrow → the next day / the following day."],
+["Khi tường thuật một câu hỏi Yes/No, ta bắt buộc sử dụng từ nối nào?",["that","to / not to","wh-words (what, where…)","if / whether"],3,"Câu hỏi Yes/No dùng if hoặc whether."],
+["Đại từ nhân xưng ngôi thứ nhất (I, we, me, us) trong câu trực tiếp thường được đổi theo yếu tố nào của mệnh đề tường thuật?",["Chủ ngữ (Subject)","Tân ngữ (Object)","Giữ nguyên không đổi","Động từ (Verb)"],0,"Ngôi thứ nhất đổi theo chủ ngữ của mệnh đề tường thuật. VD: She said, “I am tired” → She said she was tired."],
+["Động từ khuyết thiếu “must” (chỉ sự bắt buộc) khi chuyển sang gián tiếp thường được lùi thành:",["musted","had to","could","might"],1,"must → had to."],
+["Trường hợp nào sau đây KHÔNG cần lùi thì khi chuyển sang câu gián tiếp?",["Động từ tường thuật chia ở quá khứ đơn (said, told)","Câu trực tiếp diễn tả sự thật hiển nhiên, chân lý khoa học","Câu trực tiếp dùng thì hiện tại tiếp diễn","Câu trực tiếp là câu hỏi Wh-"],1,"Sự thật hiển nhiên, chân lý khoa học giữ nguyên thì."],
+["Cấu trúc chung khi tường thuật câu mệnh lệnh / yêu cầu KHẲNG ĐỊNH là:",["S + asked / told + O + V-ing","S + asked / told + O + to V","S + asked / told + O + that + S + V","S + asked / told + O + not to V"],1,"Khẳng định: told / asked + O + to V. Phủ định: not to V."],
+["Trong câu tường thuật, đại từ chỉ định “these” được đổi thành:",["this","that","those","there"],2,"these → those (this → that)."],
+["Đặc điểm ngữ pháp quan trọng nhất của mệnh đề câu hỏi khi được tường thuật là gì?",["Vẫn giữ nguyên dấu chấm hỏi ở cuối câu","Trật tự từ trở về dạng khẳng định (S + V), không đảo trợ động từ","Phải đảo trợ động từ lên trước chủ ngữ như câu trực tiếp","Luôn luôn phải dùng liên từ “that”"],1,"Câu hỏi gián tiếp: trật tự khẳng định, bỏ dấu hỏi, không đảo trợ động từ."],
+["Động từ tường thuật “suggest” theo sau thường đi với cấu trúc nào?",["suggest + to V / suggest that S + V (lùi thì)","suggest + V-ing / suggest that S + should + V","suggest + O + to V","suggest + O + V-ing"],1,"suggest + V-ing hoặc suggest that S + should + V. Không dùng suggest + to V."],
+["“I am reading a good book,” she said.",["She said that she is reading a good book.","She said that she was reading a good book.","She said that I was reading a good book.","She said that she read a good book."],1,"am reading → was reading; I → she."],
+["He told me, “I bought this car yesterday.”",["He told me that he had bought that car the day before.","He told me that he bought this car yesterday.","He told me that he has bought that car the previous day.","He told me that I had bought that car the day before."],0,"bought → had bought; this → that; yesterday → the day before; I → he."],
+["“We will go to Paris next week,” they said.",["They said that they will go to Paris the following week.","They said that we would go to Paris next week.","They said that they would go to Paris the following week.","They said that they went to Paris the next week."],2,"will → would; next week → the following week; we → they."],
+["“I can’t swim,” Mary said to John.",["Mary told John she can’t swim.","Mary told John she couldn’t swim.","Mary told John I couldn’t swim.","Mary told John she hadn’t swum."],1,"can’t → couldn’t; I → she."],
+["“The sun rises in the East,” the teacher said.",["The teacher said that the sun rose in the East.","The teacher said that the sun rises in the East.","The teacher said that the sun had risen in the East.","The teacher said that the sun would rise in the East."],1,"Chân lý khoa học giữ nguyên thì hiện tại."],
+["“I have never been to Japan,” Peter said.",["Peter said that he had never been to Japan.","Peter said that he has never been to Japan.","Peter said that I had never been to Japan.","Peter said that he was never in Japan."],0,"have been → had been; I → he."],
+["“Do you like classical music?” he asked me.",["He asked me if do I like classical music.","He asked me if I liked classical music.","He asked me whether did I like classical music.","He asked me if I like classical music."],1,"if + S + V lùi thì (like → liked), không đảo trợ động từ."],
+["“Where are you going?” she asked him.",["She asked him where was he going.","She asked him where he is going.","She asked him where he was going.","She asked him where did he go."],2,"Wh-: where + S + V, lùi thì: are going → was going."],
+["“Did you finish the report?” my boss asked.",["My boss asked if I finished the report.","My boss asked if I had finished the report.","My boss asked if did I finish the report.","My boss asked whether I finish the report."],1,"Quá khứ đơn lùi thành quá khứ hoàn thành: had finished."],
+["“What time does the train leave?” the passenger asked.",["The passenger asked what time the train left.","The passenger asked what time did the train leave.","The passenger asked what time the train leaves.","The passenger asked what time the train had left."],0,"does leave → left; trật tự khẳng định."],
+["“How long have you lived here?” she asked me.",["She asked me how long had I lived there.","She asked me how long I have lived here.","She asked me how long I had lived there.","She asked me how long did I live there."],2,"have lived → had lived; here → there; trật tự khẳng định."],
+["“Are they coming to the party tomorrow?” Tom asked.",["Tom asked if they were coming to the party the following day.","Tom asked if were they coming to the party tomorrow.","Tom asked if they had come to the party the next day.","Tom asked whether they are coming to the party the next day."],0,"are coming → were coming; tomorrow → the following day."],
+["“Please close the window,” the teacher said to him.",["The teacher asked him to close the window.","The teacher asked him closed the window.","The teacher asked him close the window.","The teacher asked him closing the window."],0,"Yêu cầu lịch sự: asked + O + to V."],
+["“Don’t touch that wire!” the electrician warned us.",["The electrician warned us to not touch that wire.","The electrician warned us not to touch that wire.","The electrician warned us don’t touch that wire.","The electrician warned us not touching that wire."],1,"warn + O + not to V."],
+["“You should see a doctor,” my friend said.",["My friend advised me see a doctor.","My friend advised me to seeing a doctor.","My friend advised me to see a doctor.","My friend advised me seeing a doctor."],2,"advise + O + to V."],
+["“Let’s go for a walk,” she said.",["She suggested going for a walk.","She suggested to go for a walk.","She suggested that we went for a walk.","She suggested us to go for a walk."],0,"Let’s → suggest + V-ing."],
+["“I will definitely pay you back tomorrow,” John said.",["John promised to pay me back the next day.","John promised paying me back tomorrow.","John promised to pay me back tomorrow.","John promised that he pays me back the following day."],0,"promise + to V; tomorrow → the next day."],
+["“I’m sorry I broke your vase,” the boy said.",["The boy apologized for break my vase.","The boy apologized to breaking my vase.","The boy apologized for breaking my vase.","The boy apologized breaking my vase."],2,"apologize for + V-ing."],
+["“Would you like to come to my dinner party?” she said to him.",["She invited him coming to her dinner party.","She invited him to come to her dinner party.","She invited him come to her dinner party.","She asked him if he likes to come to her dinner party."],1,"invite + O + to V."],
+["“Don’t forget to lock the door,” Mom said to me.",["Mom reminded me to lock the door.","Mom reminded me locking the door.","Mom reminded me not to lock the door.","Mom reminded me don’t forget to lock the door."],0,"remind + O + to V (nhắc nhớ làm gì)."],
+["“It was you who stole the money,” the manager said to him.",["The manager accused him to steal the money.","The manager accused him of stealing the money.","The manager accused him for stealing the money.","The manager accused him steal the money."],1,"accuse + O + of + V-ing."],
+["“No, I didn’t break the window,” the little girl said.",["The little girl denied breaking the window.","The little girl denied to break the window.","The little girl refused breaking the window.","The little girl refused to break the window."],0,"deny + V-ing (phủ nhận đã làm). refuse + to V là từ chối làm."],
+["“I must finish this assignment tonight,” she said.",["She said she must finish that assignment tonight.","She said she had to finish that assignment that night.","She said she has to finish this assignment that night.","She said she must finished that assignment that night."],1,"must → had to; this → that; tonight → that night."],
+["“Why don’t we take a taxi?” he said.",["He asked why they don’t take a taxi.","He suggested taking a taxi.","He advised to take a taxi.","He ordered them to take a taxi."],1,"Why don’t we…? là lời đề nghị → suggest + V-ing."],
+["“Can you help me with my homework?” the boy asked his sister.",["The boy asked his sister if she can help him with his homework.","The boy asked his sister to help him with his homework.","The boy asked his sister help him with his homework.","Both B and C are correct."],1,"Can you…? là lời nhờ vả → asked + O + to V. C thiếu “to” nên sai."],
+["“I’ll help you carry these bags,” said the man to the old lady.",["The man offered to help the old lady carry those bags.","The man told the old lady he will help her carry those bags.","The man suggested helping the old lady carry those bags.","The man required to help the old lady carry those bags."],0,"Lời đề nghị giúp → offer + to V; these → those."],
+["“You painted this picture beautifully,” she told me.",["She told me I had painted that picture beautifully.","She told me I painted that picture beautifully.","She told me you had painted that picture beautifully.","She told me I had painted this picture beautifully."],0,"painted → had painted; you → I; this → that."],
+["“If I were you, I would study harder,” the teacher said to Nam.",["The teacher advised Nam study harder.","The teacher advised Nam to study harder.","The teacher said if she had been Nam, she would have studied harder.","The teacher asked Nam to study harder if I were you."],1,"If I were you… là lời khuyên → advise + O + to V."],
+["“I am leaving tomorrow morning,” Tom says.",["Tom says he is leaving tomorrow morning.","Tom says he was leaving the next morning.","Tom said he was leaving the next morning.","Tom says he is leaving the next morning."],0,"Động từ tường thuật ở hiện tại (says) nên giữ nguyên thì và trạng từ."],
+["“Sit down and be quiet!” the principal shouted at the students.",["The principal ordered the students to sit down and be quiet.","The principal asked the students sitting down and being quiet.","The principal suggested the students to sit down and be quiet.","The principal shouted the students sit down and be quiet."],0,"Mệnh lệnh mạnh → order + O + to V."]];
+
+const NT={S:"Câu kể: lùi thì, đổi đại từ và trạng từ thời gian / nơi chốn.",Y:"Câu hỏi Yes/No: dùng if / whether, trật tự khẳng định (S + V), lùi thì, bỏ dấu hỏi.",W:"Câu hỏi Wh-: giữ từ để hỏi, trật tự khẳng định (S + V), không đảo trợ động từ, lùi thì.",C:"Mệnh đề lệnh / yêu cầu: told / asked + O + (not) to V.",V:"Động từ tường thuật riêng:"};
+/* [câu gốc, phần gợi ý, đáp án (dùng {a|b} cho các cách viết đúng), mã, ghi chú] */
+const E=[
+["“I am very busy today,” Mary said.","Mary said","Mary said she was very busy that day.","S","am → was; today → that day."],
+["“We visited the museum yesterday,” they told us.","They told us","They told us they had visited the museum {the day before|the previous day}.","S","Quá khứ đơn → quá khứ hoàn thành; yesterday → the day before."],
+["“I have already finished my homework,” the boy said.","The boy said","The boy said he had already finished his homework.","S","have finished → had finished."],
+["“I will buy a new laptop next month,” she told me.","She told me","She told me she would buy a new laptop {the following|the next} month.","S","will → would; next month → the following month."],
+["“You can stay here,” my uncle said to me.","My uncle told me","My uncle told me I could stay there.","S","can → could; you → I; here → there."],
+["“I didn’t see the accident,” the witness said.","The witness said","The witness said {he|she} hadn’t seen the accident.","S","didn’t see → hadn’t seen."],
+["“My mother is cooking dinner now,” he said.","He said","He said his mother was cooking dinner then.","S","is cooking → was cooking; now → then."],
+["“Water boils at 100 degrees Celsius,” the science teacher stated.","The science teacher stated","The science teacher stated water boils at 100 degrees Celsius.","S","Chân lý khoa học giữ nguyên thì."],
+["“I must leave early today,” she told her boss.","She told her boss","She told her boss she had to leave early that day.","S","must → had to; today → that day."],
+["“We are going to move to another city,” they said.","They said","They said they were going to move to another city.","S","are going to → were going to."],
+["“Are you a student?” the man asked me.","The man asked me","The man asked me {if|whether} I was a student.","Y"],
+["“Did you watch the football match last night?” David asked John.","David asked John","David asked John {if|whether} he had watched the football match {the night before|the previous night}.","Y","Quá khứ đơn → quá khứ hoàn thành; last night → the night before."],
+["“Have you ever been to New York?” she asked us.","She asked us","She asked us {if|whether} we had ever been to New York.","Y"],
+["“Will you go to the party tomorrow?” Mary asked Peter.","Mary asked Peter","Mary asked Peter {if|whether} he would go to the party {the next day|the following day}.","Y","will → would; tomorrow → the next day."],
+["“Can you speak French?” the interviewer asked the candidate.","The interviewer asked the candidate","The interviewer asked the candidate {if|whether} {he|she} could speak French.","Y"],
+["“What is your name?” the police officer asked the boy.","The police officer asked the boy","The police officer asked the boy what his name was.","W","your → his; is → was, đặt sau chủ ngữ."],
+["“Where did you buy this dress?” Anna asked her friend.","Anna asked her friend","Anna asked her friend where she had bought that dress.","W","did buy → had bought; this → that."],
+["“Why are you crying?” the mother asked her daughter.","The mother asked her daughter","The mother asked her daughter why she was crying.","W"],
+["“How long does it take to get to London?” the tourist asked.","The tourist asked","The tourist asked how long it took to get to London.","W"],
+["“When will the meeting start?” everyone wondered.","Everyone wondered","Everyone wondered when the meeting would start.","W","will → would, bỏ đảo ngữ."],
+["“Close your books and listen to me,” the teacher told the students.","The teacher told the students","The teacher told the students to close their books and listen to {him|her}.","C","your → their; me → him / her."],
+["“Please don’t tell anyone my secret,” Sarah said to Tom.","Sarah asked Tom","Sarah asked Tom not to tell anyone her secret.","C","my → her."],
+["“You should drink more water,” the doctor said to the patient.","The doctor advised","The doctor advised the patient to drink more water.","V","advise + O + to V."],
+["“Would you like to have dinner with me?” he said to Jane.","He invited","He invited Jane to have dinner with him.","V","invite + O + to V; me → him."],
+["“I will definitely help you with the project,” David said.","David promised","David promised to help {me|him|her} with the project.","V","promise + to V."],
+["“I’m sorry I was late for the meeting,” the employee said.","The employee apologized for","The employee apologized for being late for the meeting.","V","apologize for + V-ing."],
+["“Let’s organize a surprise party for him,” she said.","She suggested","She suggested organizing a surprise party for him.","V","suggest + V-ing."],
+["“Don’t swim too far from the shore,” the lifeguard said to the children.","The lifeguard warned","The lifeguard warned the children not to swim too far from the shore.","V","warn + O + not to V."],
+["“Remember to turn off the lights,” my father said to me.","My father reminded","My father reminded me to turn off the lights.","V","remind + O + to V."],
+["“It was you who broke my phone!” the girl said to her brother.","The girl accused her brother of","The girl accused her brother of breaking her phone.","V","accuse + O + of + V-ing; my → her."]];
+
+const expand=s=>{const m=s.match(/\{([^}]*)\}/);if(!m)return[s];return m[1].split("|").flatMap(o=>expand(s.replace(m[0],o)))};
+const show=s=>s.replace(/\{([^}]*)\}/g,(_,a)=>"("+a.split("|").join(" / ")+")");
+const norm=s=>s.toLowerCase().replace(/[’‘]/g,"'").replace(/can't/g,"can not").replace(/won't/g,"will not").replace(/n't/g," not").replace(/[.,!?;“”"]/g,"").replace(/\s+/g," ").trim();
+
+let ok=0,done=0;const L=["A","B","C","D"],pill=document.getElementById("pill");
+function upd(){pill.textContent=`Đúng ${ok} / ${done}`;if(done===70){document.getElementById("final").textContent=ok+"/70";document.getElementById("msg").textContent=ok>=63?"Xuất sắc, bạn tường thuật rất chắc tay.":ok>=49?"Khá tốt. Xem lại những câu sai để chắc hơn.":"Đọc lại phần lý thuyết rồi thử lại nhé."}}
+let ctx;
+function snd(g){try{ctx=ctx||new(window.AudioContext||window.webkitAudioContext)();const n=ctx.currentTime;(g?[[660,0],[880,.12],[1175,.24]]:[[220,0],[165,.17]]).forEach(([f,o])=>{const s=ctx.createOscillator(),v=ctx.createGain();s.type=g?"sine":"sawtooth";s.frequency.value=f;v.gain.setValueAtTime(.0001,n+o);v.gain.exponentialRampToValueAtTime(g?.2:.12,n+o+.02);v.gain.exponentialRampToValueAtTime(.0001,n+o+.3);s.connect(v);v.connect(ctx.destination);s.start(n+o);s.stop(n+o+.32)})}catch(e){}}
+function mark(g){done++;if(g)ok++;snd(g);upd()}
+
+document.getElementById("mcq").innerHTML=M.map((m,i)=>`<div class="q"><div class="sent"><span class="qn">${i+1}.</span><b>${m[0]}</b></div>${m[1].map((s,j)=>`<button class="opt" data-j="${j}"><span class="l">${L[j]}.</span>${s}</button>`).join("")}<div class="fb"></div></div>`).join("");
+document.querySelectorAll("#mcq .q").forEach((q,i)=>{
+  const m=M[i],opts=[...q.querySelectorAll(".opt")],fb=q.querySelector(".fb");
+  opts.forEach(b=>b.onclick=()=>{const j=+b.dataset.j,g=j===m[2];
+    opts.forEach(o=>o.disabled=true);opts[m[2]].classList.add("ok");if(!g)b.classList.add("no");
+    fb.className="fb show "+(g?"ok":"no");
+    fb.innerHTML=`<strong class="${g?"ok":"no"}">${g?"Chính xác!":"Chưa đúng."}</strong> Đáp án đúng: <b>${L[m[2]]}</b><div class="mut">${m[3]}</div>`;
+    mark(g)});
+});
+
+document.getElementById("essay").innerHTML=E.map((e,i)=>`<div class="q"><div class="sent"><span class="qn">${i+41}.</span>${e[0]}</div>
+<div class="row"><span class="st">→ ${e[1]}</span></div><div class="row" style="margin-top:8px"><textarea aria-label="Câu ${i+41}" placeholder="Viết tiếp…"></textarea><button class="go">Kiểm tra</button></div><div class="fb"></div></div>`).join("");
+document.querySelectorAll("#essay .q").forEach((q,i)=>{
+  const e=E[i],inp=q.querySelector("textarea"),fb=q.querySelector(".fb"),btn=q.querySelector("button"),as=expand(e[2]).map(norm);
+  const run=()=>{let r=norm(inp.value);if(!r||inp.disabled)return;r=r.replace(/^that /,"");
+    const g=as.includes(norm(e[1]+" "+r))||as.includes(r)||as.includes(r.replace(/^that /,""));
+    inp.disabled=btn.disabled=true;inp.classList.add(g?"ok":"no");
+    fb.className="fb show "+(g?"ok":"no");
+    fb.innerHTML=`<strong class="${g?"ok":"no"}">${g?"Chính xác!":"Chưa đúng."}</strong><div class="ans">${show(e[2])}</div><div class="mut">${NT[e[3]]}${e[4]?" "+e[4]:""}</div>`;
+    mark(g)};
+  btn.onclick=run;inp.onkeydown=ev=>{if(ev.key==="Enter"&&!ev.shiftKey){ev.preventDefault();run()}};
+});
+
+const px=[["o1",.07,0],["o2",-.06,0],["v1",.12,.02],["v2",-.09,-.02]].map(x=>[document.getElementById(x[0]),x[1],x[2]]);
+addEventListener("scroll",()=>{const y=scrollY;px.forEach(([e,s,r])=>e.style.transform=`translateY(${y*s}px) rotate(${y*r}deg)`)},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.06});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
